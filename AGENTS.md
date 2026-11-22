@@ -28,3 +28,5 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Preserve the imported HealthSync Hub application structure and behavior during this repository import; the user requested a direct import, not a redesign.

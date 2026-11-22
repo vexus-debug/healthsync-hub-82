@@ -1,0 +1,19 @@
+{
+  "source": "https://github.com/vexus-debug/healthsync-hub-94.git",
+  "capabilities": [
+    { "capability": "code", "source": "GitHub repository", "outcome": "migrate", "status": "imported" },
+    { "capability": "schema", "source": "Supabase SQL migrations; target project already has an external Supabase connection", "outcome": "preserve existing schema; do not apply imported migrations", "status": "pending" },
+    { "capability": "records", "source": "Supabase; no record export attached", "outcome": "preserve existing connected data", "status": "pending", "next_action": "Request filtered exports only if the source database differs from the connected project" },
+    { "capability": "auth identities", "source": "Supabase Auth; no user export attached", "outcome": "migrate", "status": "pending", "next_action": "Request user identity/profile export after the preview" },
+    { "capability": "authorization", "source": "Supabase policies and application code", "outcome": "migrate", "status": "pending" },
+    { "capability": "uploaded file bytes", "source": "Not established by the source manifest", "outcome": "preserve if present", "status": "pending" },
+    { "capability": "external providers", "source": "Supabase integration", "outcome": "preserve the project's existing external Supabase connection", "status": "pending" },
+    { "capability": "public endpoints", "source": "Supabase function(s)", "outcome": "preserve or migrate", "status": "pending" },
+    { "capability": "callbacks", "source": "Not established by the source manifest", "outcome": "preserve if present", "status": "pending" },
+    { "capability": "webhooks", "source": "Not established by the source manifest", "outcome": "preserve if present", "status": "pending" },
+    { "capability": "schedules", "source": "Not established by the source manifest", "outcome": "preserve if present", "status": "pending" },
+    { "capability": "secrets", "source": "Source .env excluded from inspection and import", "outcome": "retain securely when required", "status": "pending" },
+    { "capability": "cutover", "source": "Existing Supabase project", "outcome": "pending user/provider coordination", "status": "pending" },
+    { "capability": "verification", "source": "User requested no checks or tests", "outcome": "deferred", "status": "pending", "next_action": "User will verify the import" }
+  ]
+}
