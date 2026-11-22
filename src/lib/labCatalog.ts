@@ -424,3 +424,30 @@ export const SCIENTISTS = [
   { id: "s3", name: "Sci. Daniel Ade", role: "Lab Scientist", email: "daniel@greenmedical.ng", active: true },
   { id: "s4", name: "Sci. Halima Bako", role: "Junior Scientist", email: "halima@greenmedical.ng", active: false },
 ];
+
+// ---- Pricing (₦) — edit to match the lab's price list ----
+export const DEFAULT_TEST_PRICE = 3000;
+export const TEST_PRICES: Record<string, number> = {
+  "Full Blood Count (FBC)": 5000, "Packed Cell Volume (PCV)": 1500, "Blood Group": 1500, "Genotype": 2500,
+  "Platelet Count": 2000, "Prothrombin Time": 5000, "Bleeding Time": 2000, "Clotting Time": 2000,
+  "Hepatitis Screening": 3000, "Retroviral Screening (HIV 1&2)": 2500, "Syphilis Screening (VDRL)": 2500, "Pregnancy Test": 1500,
+  "Fasting Blood Sugar": 1500, "Random Blood Sugar": 1500, "Liver Function Test": 10000, "Kidney Function Test": 10000,
+  "Lipid Profile Test": 10000, "Calcium Test": 4000, "Uric Acid Test": 4000, "Bicarbonate Test": 4000,
+  "Female Hormone Profile": 30000, "Male Hormone Profile": 25000, "Luteinizing Hormone (LH)": 8000,
+  "Follicle Stimulating Hormone (FSH)": 8000, "Prolactin": 8000, "Progesterone": 8000, "Estradiol (E2)": 8000,
+  "Testosterone": 8000, "Thyroid Function test": 20000, "HbA1c": 10000,
+  "Malaria Test": 1500, "Widal Test": 2000, "Urine Microscopy": 2000, "Urine Culture": 6000,
+  "High Vaginal Swab (HVS)/Endocervical Swab (ECS)": 6000, "Urethral Swab": 6000, "Stool Analysis": 2000,
+  "Stool Culture": 6000, "Sputum Culture": 6000, "Semen Analysis": 6000, "Helicobacter Pylori": 4000,
+  "Fecal Occult Blood": 3000, "Microfilaria": 2500, "Semen Culture": 7000, "Urine Analysis": 1500,
+  "Eye Swab": 6000, "Wound Swab": 6000, "Ear Swab": 6000,
+};
+export const priceForTest = (name: string) => TEST_PRICES[name] ?? DEFAULT_TEST_PRICE;
+export function departmentForTest(name: string): string {
+  const n = name.toLowerCase();
+  if (/culture|swab|stool|sputum|semen|widal|malaria|pylori|microfilaria|occult/.test(n)) return "Microbiology";
+  if (/urine/.test(n)) return "Urinalysis";
+  if (/hepatitis|retroviral|syphilis|pregnancy/.test(n)) return "Serology";
+  if (/blood count|pcv|group|genotype|platelet|prothrombin|bleeding|clotting/.test(n)) return "Haematology";
+  return "Chemical Pathology";
+}

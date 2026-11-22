@@ -96,3 +96,10 @@ export function getScanTemplate(modality?: string | null, scanType?: string | nu
 export function hasScanTemplate(modality?: string | null, scanType?: string | null): boolean {
   return getScanTemplate(modality, scanType) !== null;
 }
+
+// ---- Pricing (₦) by modality — edit to match the lab's price list ----
+export const SCAN_PRICES: Record<string, number> = {
+  CT: 80000, MRI: 150000, "X-Ray": 10000, Ultrasound: 10000, Mammography: 25000, ECG: 8000, Echo: 30000,
+};
+export const DEFAULT_SCAN_PRICE = 15000;
+export const priceForScan = (modality?: string | null) => (modality && SCAN_PRICES[modality]) || DEFAULT_SCAN_PRICE;
